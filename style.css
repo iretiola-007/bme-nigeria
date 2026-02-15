@@ -1,0 +1,190 @@
+/* ---------- Reset & Global Styles ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 90px; /* ensures headings are not hidden under navbar */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #111;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+/* ---------- Navbar ---------- */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #0d1b2a;
+}
+
+nav .nav-links a {
+  color: #0d1b2a;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav .nav-links a:hover {
+  color: #0077ff;
+}
+
+/* ---------- Hero Section ---------- */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #0d1b2a, #1b263b);
+  color: #fff;
+  text-align: center;
+  padding: 4rem 1rem 2rem 1rem; /* extra top padding so heading visible */
+}
+
+#hero h1 {
+  font-size: 2.5rem;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow: visible;
+  position: relative;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #c0c0c0;
+}
+
+.scroll-down {
+  font-size: 1rem;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.scroll-down:hover {
+  background: #fff;
+  color: #1b263b;
+}
+
+/* ---------- Typewriter for All Headings ---------- */
+.typewriter-heading {
+  display: inline-block;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow: visible;
+  position: relative;
+}
+
+.typewriter-heading::after {
+  content: '|';
+  position: absolute;
+  right: 0;
+  top: 0;
+  animation: blink 0.7s infinite;
+}
+
+.typewriter-heading.cursor-blink::after {
+  content: '|';
+}
+
+.typewriter-heading[data-typed="true"]::after {
+  content: '';
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+/* ---------- Sections ---------- */
+section {
+  padding: 6rem 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h2 {
+  font-size: 2rem;
+  color: #0d1b2a;
+  margin-bottom: 1.5rem;
+}
+
+p, li {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+ul {
+  margin-left: 1.5rem;
+}
+
+dl dt h4 {
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+dl dd {
+  margin-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  background: #1b263b;
+  color: #fff;
+}
+
+/* ---------- Responsive ---------- */
+@media(max-width: 768px) {
+  #hero h1 {
+    font-size: 1.8rem;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  nav .nav-links a {
+    margin: 0.5rem 0;
+  }
+}
