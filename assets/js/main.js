@@ -19,9 +19,7 @@ overlay.addEventListener("click", () => {
 });
 
 
-/* ==============================
-   AUTO LOAD ARTICLES FROM JSON
-============================== */
+   // AUTO LOAD ARTICLES FROM JSON
 
 async function loadArticles(){
 
@@ -61,11 +59,6 @@ async function loadArticles(){
 loadArticles();
 
 
-/* ==============================
-   OPTIONAL: NAVBAR SHADOW ON SCROLL
-   (Small UI Upgrade)
-============================== */
-
 const navbar = document.querySelector(".navbar");
 
 window.addEventListener("scroll", () => {
@@ -99,3 +92,22 @@ progress.style.width = scrolled + "%";
 }
 
 });
+
+const container = document.getElementById("articlesContainer");
+
+fetch("assets/data/articles.json")
+  .then(res => res.json())
+  .then(articles => {
+    articles.forEach(article => {
+      const card = document.createElement("article");
+      card.classList.add("article-card");
+
+      card.innerHTML = `
+        <h3>${article.title}</h3>
+        <p>${article.description}</p>
+        <a href="${article.link}">Read Article →</a>
+      `;
+
+      container.appendChild(card);
+    });
+  });
