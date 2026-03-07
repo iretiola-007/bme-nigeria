@@ -56,7 +56,7 @@ progress.style.width = scrolled + "%";
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  fetch("assets/data/articles.json")
+  fetch("/assets/data/articles.json")
     .then(response => {
       if (!response.ok) {
         throw new Error("Failed to load JSON");
