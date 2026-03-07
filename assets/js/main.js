@@ -19,46 +19,6 @@ overlay.addEventListener("click", () => {
 });
 
 
-   // AUTO LOAD ARTICLES FROM JSON
-
-async function loadArticles(){
-
-  const container = document.querySelector(".article-grid");
-
-  if(!container) return;
-
-  try{
-
-    const response = await fetch("assets/data/articles.json");
-
-    const articles = await response.json();
-
-    articles.forEach(article => {
-
-      const card = document.createElement("article");
-      card.classList.add("article-card");
-
-      card.innerHTML = `
-        <h3>${article.title}</h3>
-        <p>${article.description}</p>
-        <a href="${article.link}">Read Article →</a>
-      `;
-
-      container.appendChild(card);
-
-    });
-
-  } catch(error){
-
-    console.error("Error loading articles:", error);
-
-  }
-
-}
-
-loadArticles();
-
-
 const navbar = document.querySelector(".navbar");
 
 window.addEventListener("scroll", () => {
@@ -93,21 +53,38 @@ progress.style.width = scrolled + "%";
 
 });
 
-const container = document.getElementById("articlesContainer");
 
-fetch("assets/data/articles.json")
-  .then(res => res.json())
-  .then(articles => {
-    articles.forEach(article => {
-      const card = document.createElement("article");
-      card.classList.add("article-card");
+document.addEventListener("DOMContentLoaded", () => {
 
-      card.innerHTML = `
-        <h3>${article.title}</h3>
-        <p>${article.description}</p>
-        <a href="${article.link}">Read Article →</a>
-      `;
+  fetch("assets/data/articles.json")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Failed to load JSON");
+      }
+      return response.json();
+    })
+    .then(articles => {
 
-      container.appendChild(card);
+      const container = document.querySelector(".article-grid");
+
+      articles.forEach(article => {
+
+        const card = document.createElement("article");
+        card.classList.add("article-card");
+
+        card.innerHTML = `
+          <h3>${article.title}</h3>
+          <p>${article.description}</p>
+          <a href="${article.link}">Read Article →</a>
+        `;
+
+        container.appendChild(card);
+
+      });
+
+    })
+    .catch(error => {
+      console.error("Error loading articles:", error);
     });
-  });
+
+});
