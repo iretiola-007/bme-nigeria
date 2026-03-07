@@ -88,3 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+const container = document.querySelector(".article-grid");
+
+if (!container) return;
