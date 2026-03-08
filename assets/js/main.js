@@ -1,9 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // =========================
-  // HAMBURGER MENU
-  // =========================
-
+  
   const hamburger = document.getElementById("hamburger");
   const sideMenu = document.getElementById("sideMenu");
   const overlay = document.getElementById("overlay");
@@ -24,9 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
-  // =========================
-  // NAVBAR SCROLL EFFECT
-  // =========================
+  // navbar scroll effect
 
   const navbar = document.querySelector(".navbar");
 
@@ -40,9 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // =========================
-  // SCROLL PROGRESS BAR
-  // =========================
+  // scroll progress bar
 
   const progress = document.querySelector(".progress");
 
@@ -62,9 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
-  // =========================
-  // LOAD ARTICLES FROM JSON
-  // =========================
+  // load articles from JSON
 
   const container = document.querySelector(".article-grid");
 
