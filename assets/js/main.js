@@ -84,12 +84,3 @@ document.addEventListener("DOMContentLoaded", () => {
           container.appendChild(card);
 
         });
-
-      })
-      .catch(error => {
-        console.error("Error loading articles:", error);
-      });
-
-  }
-
-});
